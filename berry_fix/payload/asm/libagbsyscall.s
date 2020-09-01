@@ -39,7 +39,7 @@ RegisterRamReset: @ 81E3B80
 	thumb_func_start VBlankIntrWait
 VBlankIntrWait: @ 81E3BA0
 	movs r2, 0
-	svc 0x5
+	swi 0x5
 	bx lr
 	thumb_func_end VBlankIntrWait
 
