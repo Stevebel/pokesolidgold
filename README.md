@@ -21,4 +21,5 @@ Just getting started, working on core mechanics and modernization.
 
 ## CREDIT TO
 - Built from pret's [pokeemerald](https://github.com/pret/pokeemerald)
-- [DizzyEgg's Battle Engine v2](https://github.com/DizzyEggg/pokeemerald/tree/battle_engine_v2)
+- [DizzyEgg's Battle Engine v2](https://www.pokecommunity.com/showthread.php?t=417820)
+- [DizzyEgg's Item Expansion](https://www.pokecommunity.com/showthread.php?t=421090)
