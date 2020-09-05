@@ -3,6 +3,7 @@
 
 bool8 MetatileBehavior_IsATile(u8);
 bool8 MetatileBehavior_IsEncounterTile(u8);
+bool8 MetatileBehavior_IsDoubleEncounterTile(u8);
 bool8 MetatileBehavior_IsJumpEast(u8);
 bool8 MetatileBehavior_IsJumpWest(u8);
 bool8 MetatileBehavior_IsJumpNorth(u8);

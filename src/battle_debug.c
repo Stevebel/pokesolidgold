@@ -532,7 +532,7 @@ static const struct BgTemplate sBgTemplates[] =
    },
    {
        .bg = 1,
-       .charBaseIndex = 10U,
+       .charBaseIndex = 2,
        .mapBaseIndex = 20,
        .screenSize = 0,
        .paletteMode = 0,
