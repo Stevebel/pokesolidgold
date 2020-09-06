@@ -602,7 +602,7 @@ u8 (*const gMovementActionFuncs_FaceRight[])(struct ObjectEvent *, struct Sprite
     MovementAction_PauseSpriteAnim,
 };
 
-u8 (*const gUnknown_0850DEE8[])(u8) = {
+u8 (*const gMoveDirectionAnimNumsBySpeed[])(u8) = {
     GetMoveDirectionAnimNum,
     GetMoveDirectionFastAnimNum,
     GetMoveDirectionFastAnimNum,

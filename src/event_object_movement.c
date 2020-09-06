@@ -5178,16 +5178,16 @@ void npc_apply_direction(struct ObjectEvent *objectEvent, struct Sprite *sprite,
 
 void do_go_anim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction, u8 speed)
 {
-    u8 (*functions[ARRAY_COUNT(gUnknown_0850DEE8)])(u8);
+    u8 (*functions[ARRAY_COUNT(gMoveDirectionAnimNumsBySpeed)])(u8);
 
-    memcpy(functions, gUnknown_0850DEE8, sizeof gUnknown_0850DEE8);
+    memcpy(functions, gMoveDirectionAnimNumsBySpeed, sizeof gMoveDirectionAnimNumsBySpeed);
     npc_apply_direction(objectEvent, sprite, direction, speed);
     npc_apply_anim_looping(objectEvent, sprite, functions[speed](objectEvent->facingDirection));
 }
 
 void StartRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
 {
-    npc_apply_direction(objectEvent, sprite, direction, 1);
+    npc_apply_direction(objectEvent, sprite, direction, 2);
     npc_apply_anim_looping(objectEvent, sprite, GetRunningDirectionAnimNum(objectEvent->facingDirection));
 }
 
@@ -8289,10 +8289,10 @@ static void Step8(struct Sprite *sprite, u8 dir)
     sprite->pos1.y += 8 * (u16) sDirectionToVectors[dir].y;
 }
 
-static void oamt_npc_ministep_reset(struct Sprite *sprite, u8 direction, u8 a3)
+static void oamt_npc_ministep_reset(struct Sprite *sprite, u8 direction, u8 speed)
 {
     sprite->data[3] = direction;
-    sprite->data[4] = a3;
+    sprite->data[4] = speed;
     sprite->data[5] = 0;
 }
 
