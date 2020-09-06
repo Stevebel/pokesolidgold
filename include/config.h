@@ -1,8 +1,11 @@
 #ifndef GUARD_CONFIG_H
 #define GUARD_CONFIG_H
 
+// Comment out when not making a debug build
 #define DEBUG_BUILD TRUE
-#define USE_BATTLE_DEBUG DEBUG_BUILD
+#ifdef DEBUG_BUILD  
+    #define USE_BATTLE_DEBUG TRUE
+#endif
 
 // In the Generation 3 games, Asserts were used in various debug builds.
 // Ruby/Sapphire and Emerald do not have these asserts while Fire Red

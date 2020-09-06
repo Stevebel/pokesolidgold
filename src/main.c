@@ -23,6 +23,10 @@
 #include "intro.h"
 #include "main.h"
 #include "trainer_hill.h"
+#ifdef DEBUG_BUILD
+    #include "mgba.h"
+    #include "printf.h"
+#endif
 
 static void VBlankIntr(void);
 static void HBlankIntr(void);
@@ -122,6 +126,10 @@ void AgbMain()
     ClearDma3Requests();
     ResetBgs();
     SetDefaultFontsPointer();
+    #ifdef DEBUG_BUILD
+        mgba_open();
+        mgba_printf(MGBA_LOG_INFO, "Debug Logging Enabled");
+    #endif
     InitHeap(gHeap, HEAP_SIZE);
 
     gSoftResetDisabled = FALSE;
