@@ -16,8 +16,10 @@ Just getting started, working on core mechanics and modernization.
 
 ## FEATURES
 - Gen 7 Battle Mechanics based on [DizzyEgg's Battle Engine v2](https://github.com/DizzyEggg/pokeemerald/tree/battle_engine_v2)
+- Pokemon survive poison with 1HP in overworld
 - Speed ups
     - Added Instant text speed option
+    - Faster Run speed and allow running indoors and while surfing
 
 ## CREDIT TO
 - Built from pret's [pokeemerald](https://github.com/pret/pokeemerald)
