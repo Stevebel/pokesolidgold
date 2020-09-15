@@ -1,9 +1,7 @@
 #ifndef GUARD_CONFIG_H
 #define GUARD_CONFIG_H
 
-// Comment out when not making a debug build
-#define DEBUG_BUILD TRUE
-#ifdef DEBUG_BUILD  
+#if DEBUG  
     #define USE_BATTLE_DEBUG TRUE
 #endif
 

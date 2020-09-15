@@ -23,7 +23,7 @@
 #include "intro.h"
 #include "main.h"
 #include "trainer_hill.h"
-#ifdef DEBUG_BUILD
+#if DEBUG
     #include "mgba.h"
     #include "printf.h"
 #endif
@@ -126,7 +126,7 @@ void AgbMain()
     ClearDma3Requests();
     ResetBgs();
     SetDefaultFontsPointer();
-    #ifdef DEBUG_BUILD
+    #if DEBUG
         mgba_open();
         mgba_printf(MGBA_LOG_INFO, "Debug Logging Enabled");
     #endif

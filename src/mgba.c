@@ -33,7 +33,7 @@
 
 void mgba_printf(int level, const char *ptr, ...)
 {
-#ifdef DEBUG_BUILD
+#if DEBUG
 	va_list args;
 	level &= 0x7;
 	va_start(args, ptr);
@@ -45,7 +45,7 @@ void mgba_printf(int level, const char *ptr, ...)
 
 bool8 mgba_open(void)
 {
-#ifdef DEBUG_BUILD
+#if DEBUG
 	*REG_DEBUG_ENABLE = 0xC0DE;
 	return *REG_DEBUG_ENABLE == 0x1DEA;
 #endif
@@ -53,7 +53,7 @@ bool8 mgba_open(void)
 
 void mgba_close(void)
 {
-#ifdef DEBUG_BUILD
+#if DEBUG
 	*REG_DEBUG_ENABLE = 0;
 #endif
 }

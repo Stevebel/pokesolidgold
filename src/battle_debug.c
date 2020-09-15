@@ -1280,27 +1280,6 @@ static void UpdateBattlerValue(struct BattleDebugMenu *data)
     data->battlerWasChanged[data->battlerId] = TRUE;
 }
 
-static u32 CharDigitsToValue(u8 *charDigits, u8 maxDigits)
-{
-    s32 i;
-    u8 id = 0;
-    u32 newValue = 0;
-    u8 valueDigits[MAX_MODIFY_DIGITS];
-
-    for (i = 0; i < MAX_MODIFY_DIGITS; i++)
-        valueDigits[i] = charDigits[i] - CHAR_0;
-
-    if (maxDigits >= MAX_MODIFY_DIGITS)
-        newValue += valueDigits[id++] * 1000;
-    if (maxDigits >= MAX_MODIFY_DIGITS - 1)
-        newValue += valueDigits[id++] * 100;
-    if (maxDigits >= MAX_MODIFY_DIGITS - 2)
-        newValue += valueDigits[id++] * 10;
-    if (maxDigits >= MAX_MODIFY_DIGITS - 3)
-        newValue += valueDigits[id++];
-
-    return newValue;
-}
 
 static void ValueToCharDigits(u8 *charDigits, u32 newValue, u8 maxDigits)
 {
@@ -1619,37 +1598,25 @@ static bool32 TryMoveDigit(struct BattleDebugModifyArrows *modArrows, bool32 mov
     s32 i;
     u8 charDigits[MAX_MODIFY_DIGITS];
     u32 newValue;
+    u32 increment = 1;
+    u8 pos = modArrows->maxDigits - modArrows->currentDigit;
 
-    for (i = 0; i < MAX_MODIFY_DIGITS; i++)
-        charDigits[i] = modArrows->charDigits[i];
-
-    if (moveUp)
-    {
-        if (charDigits[modArrows->currentDigit] == CHAR_9)
-            charDigits[modArrows->currentDigit] = CHAR_0;
-        else
-            charDigits[modArrows->currentDigit]++;
-    }
-    else
-    {
-        if (charDigits[modArrows->currentDigit] == CHAR_0)
-            charDigits[modArrows->currentDigit] = CHAR_9;
-        else
-            charDigits[modArrows->currentDigit]--;
+    for (i = 1; i < pos; i++)
+        increment = increment * 10;
+    if (!moveUp) {
+        increment = -increment;
     }
 
-    newValue = CharDigitsToValue(charDigits, modArrows->maxDigits);
-    if (newValue > modArrows->maxValue || newValue < modArrows->minValue)
+    newValue = modArrows->currValue + increment;
+    if (newValue > modArrows->maxValue) {
+        newValue = modArrows->maxValue;
+    } else if (newValue < modArrows->minValue)
     {
-        return FALSE;
+        newValue = modArrows->minValue;
     }
-    else
-    {
-        modArrows->currValue = newValue;
-        for (i = 0; i < MAX_MODIFY_DIGITS; i++)
-             modArrows->charDigits[i] = charDigits[i];
-        return TRUE;
-    }
+    modArrows->currValue = newValue;
+    ValueToCharDigits(modArrows->charDigits, modArrows->currValue, modArrows->maxDigits);
+    return TRUE;
 }
 
 static void UpdateMonData(struct BattleDebugMenu *data)

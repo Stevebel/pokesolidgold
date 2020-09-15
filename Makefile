@@ -246,6 +246,8 @@ endif
 
 ifeq ($(DINFO),1)
 override CFLAGS += -g
+override ASFLAGS += --defsym DEBUG=1
+override CPPFLAGS += -D DEBUG=1
 endif
 
 $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c $$(c_dep)
@@ -322,7 +324,7 @@ $(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS) berry_fix libagbsyscall
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
-	$(FIX) $@ -p --silent
+	$(FIX) $@ --silent
 
 modern: ; @$(MAKE) MODERN=1
 
