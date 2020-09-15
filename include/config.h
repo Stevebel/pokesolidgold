@@ -3,6 +3,8 @@
 
 #if DEBUG  
     #define USE_BATTLE_DEBUG TRUE
+#else
+    #define USE_BATTLE_DEBUG FALSE
 #endif
 
 // In the Generation 3 games, Asserts were used in various debug builds.
