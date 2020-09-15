@@ -17,6 +17,7 @@ Just getting started, working on core mechanics and modernization.
 ## FEATURES
 - Gen 7 Battle Mechanics based on [DizzyEgg's Battle Engine v2](https://github.com/DizzyEggg/pokeemerald/tree/battle_engine_v2)
 - Pokemon survive poison with 1HP in overworld
+- Day / Night Cycle
 - Speed ups
     - Added Instant text speed option
     - Faster Run speed and allow running indoors and while surfing
@@ -25,3 +26,4 @@ Just getting started, working on core mechanics and modernization.
 - Built from pret's [pokeemerald](https://github.com/pret/pokeemerald)
 - [DizzyEgg's Battle Engine v2](https://www.pokecommunity.com/showthread.php?t=417820)
 - [DizzyEgg's Item Expansion](https://www.pokecommunity.com/showthread.php?t=421090)
+- [Xhyzi's Day/Night Cycle](https://github.com/Xhyzi/pokeemerald/tree/dns)
