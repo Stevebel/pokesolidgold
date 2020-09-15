@@ -106,12 +106,12 @@ static void (*const sDebugItemMenuAdjust[])(u8, s8) =
     [DEBUG_ITEM_MENU_CANCEL] = DebugAdjust_NoOp
 };
 
-static void (**const sDebugActionsByMenu[])(u8) = {
+static void (*const *const sDebugActionsByMenu[])(u8) = {
     [DEBUG_MENU] = sDebugMenuActions,
     [DEBUG_ITEM_MENU] = sDebugItemMenuActions
 };
 
-static void (**const sDebugAdjustByMenu[])(u8, s8) = {
+static void (*const *const sDebugAdjustByMenu[])(u8, s8) = {
     [DEBUG_MENU] = NULL,
     [DEBUG_ITEM_MENU] = sDebugItemMenuAdjust
 };
